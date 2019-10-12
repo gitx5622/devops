@@ -33,9 +33,9 @@ node {
             app.push("latest")
         }
     }
-      stage('Deploy') {
-            steps {
-                sh 'make publish'
-            }
-        }
+    stage('Deploy') {
+        steps {
+        echo 'Deploying...'
+     }
+   }
 }
