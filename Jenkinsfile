@@ -33,16 +33,9 @@ node {
             app.push("latest")
         }
     }
-     stage('Deploy') {
-            when {
-                expression { BRANCH_NAME ==~ /(production|staging)/ }
-                anyOf {
-                    environment name: 'DEPLOY_TO', value: 'production'
-                    environment name: 'DEPLOY_TO', value: 'staging'
-                }
-            }
+      stage('Deploy') {
             steps {
-                echo 'Deploying'
+                sh 'make publish'
             }
         }
 }
